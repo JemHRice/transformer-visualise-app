@@ -10,6 +10,24 @@ from transformer import positional_encoding, multi_head_attention
 
 st.set_page_config(page_title="Transformer Mad Libs", page_icon="🤖", layout="wide")
 
+
+# Cache the weights loading to avoid reloading on every interaction
+@st.cache_data
+def load_trained_weights():
+    """Load and cache trained weights to avoid repeated disk I/O."""
+    if os.path.exists("trained_weights.pkl"):
+        with open("trained_weights.pkl", "rb") as f:
+            return pickle.load(f)
+    return None
+
+
+# Cache positional encoding calculation
+@st.cache_data
+def get_positional_encoding(seq_len, d_model):
+    """Cache positional encoding to avoid recalculation."""
+    return positional_encoding(seq_len, d_model)
+
+
 st.title("🤖 Transformer Mad Libs Visualiser")
 st.markdown("*See how Transformers 'pay attention' to words in your sentence*")
 
@@ -44,10 +62,7 @@ with st.sidebar:
         )
 
     # Load trained weights
-    trained_weights = None
-    if os.path.exists("trained_weights.pkl"):
-        with open("trained_weights.pkl", "rb") as f:
-            trained_weights = pickle.load(f)
+    trained_weights = load_trained_weights()
 
     use_trained = False
     if trained_weights is not None:
@@ -107,7 +122,7 @@ np.random.seed(42)  # For consistency
 X = np.random.randn(seq_len, d_model)
 
 # Add positional encoding
-pe = positional_encoding(seq_len, d_model)
+pe = get_positional_encoding(seq_len, d_model)
 X_with_pos = X + pe
 
 # Create causal mask if enabled
