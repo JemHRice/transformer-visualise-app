@@ -15,8 +15,8 @@ st.set_page_config(page_title="Transformer Mad Libs", page_icon="🤖", layout="
 @st.cache_data
 def load_trained_weights():
     """Load and cache trained weights to avoid repeated disk I/O."""
-    if os.path.exists("trained_weights.pkl"):
-        with open("trained_weights.pkl", "rb") as f:
+    if os.path.exists("models/trained_weights.pkl"):
+        with open("models/trained_weights.pkl", "rb") as f:
             return pickle.load(f)
     return None
 
@@ -112,6 +112,11 @@ else:
 
 # Tokenize the sentence
 tokens = sentence_structure.split()
+
+# Check if sentence is empty
+if not tokens:
+    st.error("You need to type something!")
+    st.stop()
 
 st.markdown("### Your Sentence:")
 st.markdown(f'**"{sentence_structure}"**')

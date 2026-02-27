@@ -102,13 +102,13 @@ pip install torch --index-url https://download.pytorch.org/whl/cpu
 pip install torch --index-url https://download.pytorch.org/whl/cu118
 
 # Then train
-python train_with_pytorch.py
+python scripts/train_with_pytorch.py
 ```
 
 This will:
 - Train a transformer on sample English sentences
 - Learn meaningful attention patterns through backpropagation
-- Save weights to `trained_weights.pkl`
+- Save weights to `models/trained_weights.pkl`
 - Enable the "Use Trained Weights" toggle in the app
 
 **Note:** PyTorch is not required to run the app—it's only needed if you want to train your own model locally.
@@ -156,24 +156,41 @@ While building this tool, I benefited enormously from these resources. Check the
 
 ```
 transformer-from-scratch/
-├── app.py                          # Streamlit web interface
-├── transformer.py                  # Core attention mechanisms (NumPy)
-├── train_with_pytorch.py           # Training script (PyTorch)
-├── trained_weights.pkl             # Pre-trained weight matrices
-├── requirements.txt                # Dependencies
-└── README.md                       # This file
+│
+├── app.py                          # Streamlit web app (MAIN ENTRY POINT)
+├── transformer.py                  # Core NumPy attention mechanisms
+├── requirements.txt                # App dependencies (Streamlit, NumPy, etc.)
+├── requirements-dev.txt            # Optional: PyTorch for local training
+├── README.md                       # This file
+│
+├── models/                         # Pre-trained weights and vocabularies
+│   ├── trained_weights.pkl         # Trained attention projection matrices
+│   └── vocab.pkl                   # Word-to-index vocabulary mapping
+│
+└── scripts/                        # Training and utility scripts
+    └── train_with_pytorch.py       # PyTorch training script (optional)
+
 ```
 
 ### Key Files Explained
 
 **`app.py`**: The interactive Streamlit interface. This is what you see in the browser.
+- Loads trained weights from `models/trained_weights.pkl`
+- Runs the transformer from `transformer.py`
 
 **`transformer.py`**: Pure NumPy implementation of:
 - Positional encoding
 - Scaled dot-product attention
 - Multi-head attention
 
-**`train_with_pytorch.py`**: PyTorch training script that learns weights from English sentences.
+**`scripts/train_with_pytorch.py`**: PyTorch training script that learns weights from English sentences.
+- Saves outputs to `models/trained_weights.pkl` and `models/vocab.pkl`
+- Optional—only run this if you want to retrain the model locally
+
+**`models/`**: Contains all trained model artefacts
+- Binary files are kept separate from source code
+- Easy to replace weights without cluttering root
+
 
 ## 🔬 Under the Hood
 
