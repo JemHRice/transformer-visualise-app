@@ -2,6 +2,10 @@
 
 A visual, interactive tool for understanding how attention mechanisms work in transformers. Built by someone learning transformers, for everyone learning transformers.
 
+### 🌐 **[Try the Live Demo!](https://transformer-visualise-app-akxrdapmcxbfelbunmzjr9.streamlit.app/)**
+
+No installation needed—just click above to explore attention patterns interactively!
+
 ## 🎯 Why This Project?
 
 I wanted to truly understand how transformers work, and I realized that **seeing is believing**. Reading about attention mechanisms is one thing, but *watching* how different words attend to each other across a sentence? That's where the magic clicks.
@@ -40,15 +44,21 @@ This tool lets you **build sentences and watch in real-time** how a transformer'
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### Option 1: Try Online (Easiest!)
+👉 **[Open the live demo](https://transformer-visualise-app-akxrdapmcxbfelbunmzjr9.streamlit.app/)** – No installation needed!
+
+### Option 2: Run Locally
+
+**Prerequisites**
 - Python 3.8+
 - Virtual environment (recommended)
 
-### Installation
+**Installation**
 
-1. **Clone or navigate to the project directory**
+1. **Clone the repository**
    ```bash
-   cd transformer-from-scratch
+   git clone https://github.com/JemHRice/transformer-visualise-app.git
+   cd transformer-visualise-app
    ```
 
 2. **Create and activate a virtual environment** (if you haven't already)
