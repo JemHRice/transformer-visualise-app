@@ -6,6 +6,13 @@ A visual, interactive tool for understanding how attention mechanisms work in tr
 
 No installation needed—just click above to explore attention patterns interactively!
 
+**⏱️ Note on Loading Time:**
+- **First load**: Takes ~30-60 seconds (Streamlit Cloud server is starting up from cold—this is normal and one-time)
+- **After that**: Much faster! ~2-5 seconds per interaction
+- **On your own machine**: Loads instantly once installed locally
+
+If the online demo feels slow, you can always **[run it locally](#option-2-run-locally)** for the best experience!
+
 ## 🎯 Why This Project?
 
 I wanted to truly understand how transformers work, and I realized that **seeing is believing**. Reading about attention mechanisms is one thing, but *watching* how different words attend to each other across a sentence? That's where the magic clicks.
@@ -81,6 +88,7 @@ This tool lets you **build sentences and watch in real-time** how a transformer'
 
 5. **Open in your browser**
    - Streamlit will open automatically, or navigate to `http://localhost:8501`
+   - **✅ It will load instantly and be super responsive!** (Much faster than the cloud version)
 
 ### Training Your Own Weights (Optional)
 
