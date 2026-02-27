@@ -73,15 +73,6 @@ This tool lets you **build sentences and watch in real-time** how a transformer'
    ```bash
    pip install -r requirements.txt
    ```
-   
-   **Note on PyTorch**: The requirements.txt includes PyTorch for CPU. If you want GPU support, install manually:
-   ```bash
-   # For CUDA 11.8 (NVIDIA GPU)
-   pip install torch --index-url https://download.pytorch.org/whl/cu118
-   
-   # For CPU only (smaller download)
-   pip install torch --index-url https://download.pytorch.org/whl/cpu
-   ```
 
 4. **Run the app**
    ```bash
@@ -93,9 +84,16 @@ This tool lets you **build sentences and watch in real-time** how a transformer'
 
 ### Training Your Own Weights (Optional)
 
-Want to see what trained weights look like? The project includes a PyTorch trainer:
+Want to train your own model and see what trained weights look like? You can optionally install PyTorch and run the training script:
 
 ```bash
+# Install PyTorch (CPU version)
+pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+# Or for CUDA 11.8 (NVIDIA GPU)
+pip install torch --index-url https://download.pytorch.org/whl/cu118
+
+# Then train
 python train_with_pytorch.py
 ```
 
@@ -104,6 +102,8 @@ This will:
 - Learn meaningful attention patterns through backpropagation
 - Save weights to `trained_weights.pkl`
 - Enable the "Use Trained Weights" toggle in the app
+
+**Note:** PyTorch is not required to run the app—it's only needed if you want to train your own model locally.
 
 ## 📊 How to Use the App
 
