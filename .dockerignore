@@ -1,0 +1,12 @@
+transformervenv/
+__pycache__/
+*.py[cod]
+.git/
+.gitignore
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.streamlit/
+scripts/
+README.md

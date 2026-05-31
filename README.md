@@ -9,13 +9,13 @@ No installation needed—just click above to explore attention patterns interact
 **⏱️ Note on Loading Time:**
 - **First load**: Takes ~30-60 seconds (Streamlit Cloud server is starting up from cold—this is normal and one-time)
 - **After that**: Much faster! ~2-5 seconds per interaction
-- **On your own machine**: Loads instantly once installed locally
+- **On your own machine (local or Docker)**: Loads instantly
 
-If the online demo feels slow, you can always **[run it locally](#option-2-run-locally)** for the best experience!
+If the online demo feels slow, you can always **[run it locally](#option-2-run-with-docker-recommended-for-local-use)** for the best experience!
 
 ## 🎯 Why This Project?
 
-I wanted to truly understand how transformers work, and I realized that **seeing is believing**. Reading about attention mechanisms is one thing, but *watching* how different words attend to each other across a sentence? That's where the magic clicks.
+I wanted to truly understand how transformers work, and I realized that **seeing is believing**. Reading about attention mechanisms is one thing, but *watching* how different words attend to each other across a sentence? That's where it really clicked for me.
 
 This tool lets you **build sentences and watch in real-time** how a transformer's attention heads focus on different patterns. It's designed to be intuitive and visual—perfect for learners like me who need to see the math come to life.
 
@@ -54,7 +54,36 @@ This tool lets you **build sentences and watch in real-time** how a transformer'
 ### Option 1: Try Online (Easiest!)
 👉 **[Open the live demo](https://transformer-visualise-app-akxrdapmcxbfelbunmzjr9.streamlit.app/)** – No installation needed!
 
-### Option 2: Run Locally
+### Option 2: Run with Docker (Recommended for local use)
+
+No Python setup needed—just Docker.
+
+**Prerequisites**
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+**Steps**
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/JemHRice/transformer-visualise-app.git
+   cd transformer-visualise-app
+   ```
+
+2. **Build the image**
+   ```bash
+   docker build -t transformer-app .
+   ```
+
+3. **Run the container**
+   ```bash
+   docker run -p 8501:8501 transformer-app
+   ```
+
+4. **Open in your browser**
+   - Navigate to `http://localhost:8501`
+   - **✅ Loads instantly and is fully self-contained!**
+
+### Option 3: Run Locally (Manual setup)
 
 **Prerequisites**
 - Python 3.8+
@@ -161,6 +190,8 @@ transformer-from-scratch/
 ├── transformer.py                  # Core NumPy attention mechanisms
 ├── requirements.txt                # App dependencies (Streamlit, NumPy, etc.)
 ├── requirements-dev.txt            # Optional: PyTorch for local training
+├── Dockerfile                      # Container definition for Docker builds
+├── .dockerignore                   # Files excluded from Docker build context
 ├── README.md                       # This file
 │
 ├── models/                         # Pre-trained weights and vocabularies
@@ -214,24 +245,6 @@ transformer-from-scratch/
 
 See the papers and videos above for the full mathematical derivation!
 
-## 💡 What I Learned Building This
-
-1. **Attention is learnable similarity** - The weights start random but learn what to pay attention to
-2. **Multiple heads = multiple perspectives** - Different heads catch different patterns simultaneously
-3. **Training matters** - The difference between trained and random weights is stark
-4. **Causal masking prevents cheating** - In autoregressive models, this is what ensures tokens can't look ahead
-5. **Visualisation is powerful** - A heatmap teaches better than a equation (at least for me!)
-
-## 🛠️ Customisation Ideas
-
-Want to extend this? Here are some ideas:
-
-- Add **cross-attention** (how transformer encoders attend to decoders)
-- Show **activation functions** and how they change representations
-- Add **layer norm** and **residual connections** visualisation
-- Train on **different datasets** (poetry, code, different languages)
-- Compare **different architectures** side-by-side
-- Add **ablation studies** (what happens if we remove causal masking?)
 
 ## 🤝 Let's Learn Together
 
@@ -245,7 +258,6 @@ This project is open for educational use. Feel free to learn from it, modify it,
 
 - Thanks to 3Blue1Brown for clarity and visual intuition
 - Thanks to Andrej Karpathy for the detailed walkthroughs
-- The transformer community for amazing resources
 - Streamlit for making visualisation accessible
 
 ---
