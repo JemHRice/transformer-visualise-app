@@ -4,10 +4,10 @@ A visual, interactive tool for understanding how attention mechanisms work in tr
 
 ### 🌐 **[Try the Live Demo!](https://transformer-visualise-app-akxrdapmcxbfelbunmzjr9.streamlit.app/)**
 
-No installation needed—just click above to explore attention patterns interactively!
+No installation needed, just click above to explore attention patterns interactively!
 
 **⏱️ Note on Loading Time:**
-- **First load**: Takes ~30-60 seconds (Streamlit Cloud server is starting up from cold—this is normal and one-time)
+- **First load**: Takes ~30-60 seconds (Streamlit Cloud server is starting up from cold, which is normal and one-time)
 - **After that**: Much faster! ~2-5 seconds per interaction
 - **On your own machine (local or Docker)**: Loads instantly
 
@@ -17,7 +17,7 @@ If the online demo feels slow, you can always **[run it locally](#option-2-run-w
 
 I wanted to truly understand how transformers work, and I realized that **seeing is believing**. Reading about attention mechanisms is one thing, but *watching* how different words attend to each other across a sentence? That's where it really clicked for me.
 
-This tool lets you **build sentences and watch in real-time** how a transformer's attention heads focus on different patterns. It's designed to be intuitive and visual—perfect for learners like me who need to see the math come to life.
+This tool lets you **build sentences and watch in real-time** how a transformer's attention heads focus on different patterns. It's designed to be intuitive and visual, perfect for learners like me who need to see the math come to life.
 
 ## ✨ Features
 
@@ -33,7 +33,7 @@ This tool lets you **build sentences and watch in real-time** how a transformer'
 
 ### 🔐 Causal Masking
 - Toggle on to see how **autoregressive models** (like GPT) work
-- Words can only attend to previous words—prevents "cheating" by looking ahead
+- Words can only attend to previous words, which prevents "cheating" by looking ahead
 - See the characteristic triangular pattern in the attention matrix
 - Essential for understanding how language models generate text token-by-token
 
@@ -56,7 +56,7 @@ This tool lets you **build sentences and watch in real-time** how a transformer'
 
 ### Option 2: Run with Docker (Recommended for local use)
 
-No Python setup needed—just Docker.
+No Python setup needed, just Docker.
 
 **Prerequisites**
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
@@ -140,7 +140,7 @@ This will:
 - Save weights to `models/trained_weights.pkl`
 - Enable the "Use Trained Weights" toggle in the app
 
-**Note:** PyTorch is not required to run the app—it's only needed if you want to train your own model locally.
+**Note:** PyTorch is not required to run the app; it's only needed if you want to train your own model locally.
 
 ## 📊 How to Use the App
 
@@ -156,12 +156,12 @@ In the sidebar, you can:
 
 ### Step 3: Explore the Attention
 - Move through different attention heads in the visualiser
-- Watch how the colours change—darker = more attention
+- Watch how the colours change: darker = more attention
 - Notice which words attend to which other words
 - Compare patterns across different heads
 
 ### Step 4: Read the Explanations
-- The middle column shows "Trends to Observe"—tips on what to look for
+- The middle column shows "Trends to Observe", with tips on what to look for
 - Learn why certain patterns emerge
 - Understanding deepens when you connect theory to what you see
 
@@ -175,7 +175,7 @@ While building this tool, I benefited enormously from these resources. Check the
 
 ### Andrej Karpathy - Attention Deep Dives
 - **[Let's build GPT: from scratch, in code](https://www.youtube.com/watch?v=kCc8FmEb1nY)** - Beautiful walkthrough of building attention from first principles
-- Watch Karpathy code attention in real-time—extremely educational
+- Watch Karpathy code attention in real-time; extremely educational
 
 ### Other Great Resources
 - **[Attention is All You Need](https://arxiv.org/abs/1706.03762)** - The original transformer paper (dense but comprehensive)
@@ -216,7 +216,7 @@ transformer-from-scratch/
 
 **`scripts/train_with_pytorch.py`**: PyTorch training script that learns weights from English sentences.
 - Saves outputs to `models/trained_weights.pkl` and `models/vocab.pkl`
-- Optional—only run this if you want to retrain the model locally
+- Optional: only run this if you want to retrain the model locally
 
 **`models/`**: Contains all trained model artefacts
 - Binary files are kept separate from source code
